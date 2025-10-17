@@ -16,11 +16,11 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-background/95" />
       </div>
       
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-playfair text-primary-foreground mb-6 animate-fade-in">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-playfair text-primary-foreground mb-4 sm:mb-6 animate-fade-in leading-tight">
           Doğa Orman Park
         </h1>
-        <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto font-light">
+        <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 mb-6 sm:mb-8 max-w-2xl mx-auto font-light px-2">
           Doğanın kalbinde unutulmaz organizasyonlar ve etkinlikler için mükemmel mekan
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -26,12 +26,12 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-card">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-playfair text-foreground mb-4">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-playfair text-foreground mb-3 sm:mb-4 px-2">
             İletişime Geçin
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
             Organizasyonunuz için rezervasyon yapmak veya detaylı bilgi almak için bizimle iletişime geçin
           </p>
         </div>
