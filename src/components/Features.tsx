@@ -4,22 +4,26 @@ const features = [
   {
     icon: Leaf,
     title: "Doğayla İç İçe",
-    description: "Ormanın huzur veren atmosferinde, doğanın seslerini dinleyerek organizasyonunuzu gerçekleştirin."
+    description: "Ormanın huzur veren atmosferinde, doğanın seslerini dinleyerek organizasyonunuzu gerçekleştirin.",
+    image: "/images/nature.JPG" // Fotoğraf yolunu buraya ekleyin
   },
   {
     icon: Users,
     title: "Her Ölçekte Etkinlik",
-    description: "Küçük toplantılardan büyük organizasyonlara kadar her ihtiyaca uygun esnek alanlar."
+    description: "Küçük toplantılardan büyük organizasyonlara kadar her ihtiyaca uygun esnek alanlar.",
+    image: "/images/events.JPG"
   },
   {
     icon: Heart,
     title: "Özenle Tasarlanmış",
-    description: "Modern konforu doğal güzellikle birleştiren özenle düşünülmüş mekanlar."
+    description: "Modern konforu doğal güzellikle birleştiren özenle düşünülmüş mekanlar.",
+    image: "/images/design.JPG"
   },
   {
     icon: Sparkles,
     title: "Unutulmaz Deneyimler",
-    description: "Katılımcılarınıza eşsiz bir deneyim sunarak etkinliğinizi farklılaştırın."
+    description: "Katılımcılarınıza eşsiz bir deneyim sunarak etkinliğinizi farklılaştırın.",
+    image: "/images/alan.JPG"
   }
 ];
 
@@ -35,22 +39,33 @@ const Features = () => {
             Organizasyonlarınız için doğanın içinde huzurlu ve eşsiz bir deneyim sunuyoruz
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
-              className="group p-6 rounded-2xl bg-background hover:shadow-elegant transition-all duration-300 hover:-translate-y-2"
+              className="group relative p-6 rounded-2xl overflow-hidden hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 min-h-[300px]"
             >
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-8 h-8 text-primary" />
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                style={{ backgroundImage: `url(${feature.image})` }}
+              />
+              
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-white/30 transition-colors">
+                  <feature.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {feature.title}
+                </h3>
+                <p className="text-white/90">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>
