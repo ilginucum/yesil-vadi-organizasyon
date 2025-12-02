@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import heroImage from "@/assets/hero-bg.jpeg"; // Kendi görselini ekle
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -8,23 +9,16 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Image Background */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2"
+        <img
+          src={heroImage}
+          alt="Doğa Orman Park"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
           style={{ 
-            objectFit: 'cover',
-            filter: 'brightness(1.1) contrast(1.05)' // Video kalitesini artırır
+            filter: 'brightness(1.1) contrast(1.05)'
           }}
-        >
-          <source src="/videos/hero-video.MP4" type="video/mp4" />
-          <source src="/videos/hero-video.webm" type="video/webm" />
-        </video>
+        />
       </div>
 
       {/* Overlay - Daha az yoğun */}

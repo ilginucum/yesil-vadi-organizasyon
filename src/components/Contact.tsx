@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -17,11 +17,43 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Form bilgilerini WhatsApp mesajına ekle
+    const phoneNumber = "905334274511";
+    const whatsappMessage = `
+🌳 *Doğa Orman Park Rezervasyon Talebi*
+
+👤 *Ad Soyad:* ${formData.name}
+📧 *E-posta:* ${formData.email}
+📱 *Telefon:* ${formData.phone}
+
+💬 *Mesaj:*
+${formData.message}
+    `.trim();
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
+    
     toast({
-      title: "Mesajınız alındı!",
-      description: "En kısa sürede size dönüş yapacağız.",
+      title: "WhatsApp'a yönlendiriliyorsunuz!",
+      description: "Mesajınızı WhatsApp üzerinden gönderebilirsiniz.",
     });
+    
+    // Formu temizle
     setFormData({ name: "", email: "", phone: "", message: "" });
+  };
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "905334274511"; // +90 533 427 4511
+    const message = "Merhaba, Doğa Orman Park hakkında bilgi almak istiyorum.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleAddressClick = () => {
+    const address = "Karaabdulbaki Köyü Kurtdere Namazgahı, 41001 İzmit/Kocaeli";
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(mapsUrl, '_blank');
   };
 
   return (
@@ -84,15 +116,24 @@ const Contact = () => {
           </div>
 
           <div className="space-y-6">
-            <Card className="p-6 hover:shadow-elegant transition-shadow">
+            <Card 
+              className="p-6 hover:shadow-elegant transition-shadow cursor-pointer"
+              onClick={handleAddressClick}
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="font-semibold text-lg mb-1">Adres</h3>
-                  <p className="text-muted-foreground">
-                    Orman içi, doğa ile iç içe konumumuzda
+                  <p className="text-muted-foreground mb-1">
+                    Karaabdulbaki Köyü Kurtdere Namazgahı
+                  </p>
+                  <p className="text-muted-foreground mb-2">
+                    41001 İzmit/Kocaeli
+                  </p>
+                  <p className="text-sm text-primary">
+                    📍 Google Maps'te görüntüle
                   </p>
                 </div>
               </div>
@@ -106,7 +147,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Telefon</h3>
                   <p className="text-muted-foreground">
-                    +90 XXX XXX XX XX
+                    +90 532 446 0840
                   </p>
                 </div>
               </div>
@@ -126,15 +167,21 @@ const Contact = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-elegant transition-shadow">
+            <Card 
+              className="p-6 hover:shadow-elegant transition-shadow cursor-pointer bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-800"
+              onClick={handleWhatsAppClick}
+            >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-6 h-6 text-green-600 dark:text-green-500" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">Çalışma Saatleri</h3>
-                  <p className="text-muted-foreground">
-                    Her gün: 09:00 - 22:00
+                <div className="flex-1">
+                  <h3 className="font-semibold text-lg mb-1 text-green-900 dark:text-green-100">WhatsApp Business</h3>
+                  <p className="text-green-700 dark:text-green-300 mb-2">
+                    +90 533 427 4511
+                  </p>
+                  <p className="text-sm text-green-600 dark:text-green-400">
+                    Hızlı yanıt için WhatsApp'tan mesaj gönderin 💬
                   </p>
                 </div>
               </div>
