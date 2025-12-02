@@ -147,7 +147,7 @@ ${formData.message}
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Telefon</h3>
                   <p className="text-muted-foreground">
-                    +90 532 446 0840
+                    +90 533 427 4511
                   </p>
                 </div>
               </div>
