@@ -1,6 +1,6 @@
 import { UtensilsCrossed, Palette, Users2, TreePine, ExternalLink } from "lucide-react";
 import restaurantImg from "@/assets/restaurant.png";
-import workshopImg from "@/assets/workshop.jpg";
+import workshopImg from "@/assets/ww3.jpg";
 import trailImg from "@/assets/parkur.jpg";
 import areaImg from "@/assets/alanlar.jpg";
 
@@ -15,7 +15,7 @@ const facilities = [
   {
     icon: Palette,
     title: "Workshop & Atölye",
-    description: "Yaratıcı çalışmalar, eğitimler ve atölye çalışmaları için tam donanımlı mekanlarımız.",
+    description: "Yaratıcı çalışmalar, eğitimler ve atölye çalışmaları için uygun mekanlarımız.",
     image: workshopImg,
     link: "https://dogaormanakademisi.com"
   },
