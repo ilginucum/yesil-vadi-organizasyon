@@ -30,7 +30,7 @@ const Pizza = () => {
               <Card className="overflow-hidden group cursor-pointer">
                 <div className="aspect-square relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80" 
+                    src="images/pizzaiki.jpg" 
                     alt="Taş Fırın Pizza"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
