@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Calendar, Clock, Flame } from "lucide-react";
+import menuImage from "@/assets/menu.jpg";
 
 const Pizza = () => {
   return (
@@ -57,6 +59,27 @@ const Pizza = () => {
                   Ormanlık alanımızda, aileniz ve sevdiklerinizle birlikte doğanın tadını 
                   çıkarırken, sıcacık fırından çıkan pizzalarımızın eşsiz lezzetini deneyimleyin.
                 </p>
+              </div>
+
+              {/* Menü Butonu */}
+              <div className="flex justify-center pt-4">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2">
+                      <Flame className="w-5 h-5" />
+                      Menü İçin Tıklayınız
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-5xl max-h-[90vh] p-0">
+                    <div className="relative w-full h-full overflow-auto">
+                      <img 
+                        src={menuImage} 
+                        alt="Pizza Menüsü" 
+                        className="w-full h-auto"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
 
               {/* Bilgi Kartları */}
