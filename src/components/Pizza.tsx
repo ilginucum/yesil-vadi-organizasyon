@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Calendar, Clock, Flame } from "lucide-react";
 import menuImage from "@/assets/menu.jpg";
 
@@ -70,8 +71,13 @@ const Pizza = () => {
                       Menü İçin Tıklayınız
                     </button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-5xl max-h-[90vh] p-0">
-                    <div className="relative w-full h-full overflow-auto">
+                  <DialogContent className="max-w-6xl max-h-[90vh] p-0 overflow-hidden">
+                    {/* Gizli başlık - Sadece ekran okuyucular için */}
+                    <VisuallyHidden>
+                      <DialogTitle>Pizza Menüsü</DialogTitle>
+                    </VisuallyHidden>
+                    
+                    <div className="w-full h-[85vh] overflow-y-auto overflow-x-hidden">
                       <img 
                         src={menuImage} 
                         alt="Pizza Menüsü" 
@@ -115,14 +121,6 @@ const Pizza = () => {
                     </div>
                   </div>
                 </Card>
-              </div>
-
-              {/* Not */}
-              <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-                <p className="text-sm text-amber-800 dark:text-amber-200">
-                  <span className="font-semibold">💡 İpucu:</span> Hafta sonu pizza keyfi için 
-                  önceden rezervasyon yapmanızı öneririz.
-                </p>
               </div>
             </div>
           </div>
